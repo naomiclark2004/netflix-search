@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+{% block title %}Search Netflix Catalog{% endblock %}
+
+{% block content %}
+<div class="welcome">
+    <h1>This is a search application for <span style="color: #b20710">Netflix's</span> catalog.</h1>
+    <p>You can search by director, title, and actor!</p>
+
+    <button onclick="location.href='/director'">Director</button>
+    <button onclick="location.href='/title'">Title</button>
+    <button onclick="location.href='/actor'">Actor</button>
+</div>
+
+{% endblock %}

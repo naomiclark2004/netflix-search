@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+{% block title %}Search Netflix Directors{% endblock %}
+
+{% block content %}
+<form action="{{url_for('director')}}" method="POST">
+    <input type="text" id="name" name="name" value="{{director}}"><br>
+    <input type="submit" value="Submit">
+</form>
+
+<div class="boxes">
+
+    {% if result == "Error" %}
+    <p>{{director}}'s work not found.</p>
+    {% elif result == "" %}
+    <p style="text-align: center;">Start searching...</p>
+    {% else %}
+    {% for i in result %}
+    {% if i['type'] == "Movie"%}
+    <div>
+        <h1>{{i['title']}}</h1>
+        <p>Directed By: {{i['director']}}</p>
+        <p>{{i['type']}} | {{i['rating']}} | {{i['release_year']}} | {{i['duration']}}</p>
+        <p>{{i['description']}}</p>
+        <p>Cast: {{i['cast']}}</p>
+    </div>
+    {% else %}
+    <div>
+        <h1>{{i['title']}}</h1>
+        <p>Directed By: {{i['director']}}</p>
+        <p>{{i['type']}} | {{i['release_year']}} | {{i['rating']}} </p>
+        <p>{{i['description']}}</p>
+        <p>Cast: {{i['cast']}}</p>
+    </div>
+    {% endif %}
+    {% endfor %}
+    {% endif %}
+
+</div>
+{% endblock %}
+
+<!-- show_id,type,title,director,cast,country,date_added,release_year,rating,duration,listed_in,description -->

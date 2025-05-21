@@ -9,5 +9,5 @@ A function will search through the dataset and return information an all movies 
 ## Instructions:
 
 To run the application simply enter into the command line:
-
+    pip install -r requirements.txt
     python app.py
